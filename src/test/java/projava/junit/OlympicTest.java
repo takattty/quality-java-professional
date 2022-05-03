@@ -13,7 +13,7 @@ class OlympicTest {
         assertFalse(new Olympic().isSummerOlympicYear(1892), "1892年");
         assertFalse(new Olympic().isSummerOlympicYear(1895), "1895年");
         // 近代オリンピック初回開催年
-        assertFalse(new Olympic().isSummerOlympicYear(1896), "1896年");
+        assertTrue(new Olympic().isSummerOlympicYear(1896), "1896年");
     }
 
     @Test
@@ -28,7 +28,7 @@ class OlympicTest {
     void 四年周期から外れえる非開催年() {
         int[] years = {1905, 1907, 1925, 1967, 2001};
         for(int year : years) {
-            assertTrue(new Olympic().isSummerOlympicYear(year), year + "年");
+            assertFalse(new Olympic().isSummerOlympicYear(year), year + "年");
         }
     }
 
@@ -36,7 +36,7 @@ class OlympicTest {
     void 戦争又はパンデミックで中止となった年() {
         int[] years = {1916, 1940, 1944, 2020};
         for(int year : years) {
-            assertTrue(new Olympic().isSummerOlympicYear(year), year + "年");
+            assertFalse(new Olympic().isSummerOlympicYear(year), year + "年");
         }
     }
 
