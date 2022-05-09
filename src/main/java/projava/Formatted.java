@@ -17,6 +17,15 @@ public class Formatted {
             System.out.println(element);
         }
 
+        String symbol = textArray[1];
+        if (symbol.equals("s")) {
+            System.out.println("数値が代入されます");
+        } else if (symbol.equals("d")) {
+            System.out.println("文字列が代入されます");
+        } else {
+            System.out.println("想定外の値が渡されました");
+        }
+
         String strNumber = String.valueOf(number);
         String result;
         List<String> list = new ArrayList<>();
