@@ -11,19 +11,15 @@ public class Formatted {
         this.text = text;
     }
     public String format(int number) {
-        System.out.println(this.text);
         String[] textArray = this.text.split("%");
-        for(String element : textArray) {
-            System.out.println(element);
-        }
 
         String symbol = textArray[1];
         if (symbol.equals("s")) {
-            System.out.println("数値が代入されます");
+            // System.out.println("数値が代入されます");
         } else if (symbol.equals("d")) {
-            System.out.println("文字列が代入されます");
+            // System.out.println("文字列が代入されます");
         } else {
-            System.out.println("想定外の値が渡されました");
+            // System.out.println("想定外の値が渡されました");
         }
 
         String strNumber = String.valueOf(number);
