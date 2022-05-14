@@ -20,4 +20,11 @@ class FormattedTest {
         String result = instance.format(1200);
         assertEquals("1,200", result);
     }
+
+    @Test
+    void 文字列のformat処理() {
+        Formatted instance = new Formatted("test%d");
+        String result = instance.format(120);
+        assertNotEquals("test120", result);
+    }
 }
