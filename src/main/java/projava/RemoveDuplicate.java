@@ -5,12 +5,13 @@ public class RemoveDuplicate {
         String date = "abcccbaabcc";
 
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < date.length(); i++) {
-            char ch = date.charAt(i);
-            if (i>0 && ch == date.charAt(i-1)) {
+        char prev = 0;
+        for(char ch : date.toCharArray()) {
+            if(ch == prev) {
                 continue;
             }
             builder.append(ch);
+            prev = ch;
         }
         String result = builder.toString();
         System.out.println(date);
