@@ -1,10 +1,18 @@
 package projava;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class CheckFloat {
     enum FloatState {
         START, INT, FRAC_START, FRAC, ZERO
     }
 
+    static Pattern pat = Pattern.compile("(0|[1-9][0-9]*)(\\.[0-9]+)?");
+    static boolean regCheck(String data) {
+        Matcher mat = pat.matcher(data);
+        return mat.matches();
+    }
     static boolean check(String data) {
         var state = FloatState.START;
 
@@ -76,5 +84,17 @@ public class CheckFloat {
         System.out.println(check("12.3"));
         System.out.println(check("0.3"));
         System.out.println(check("12.30"));
+        System.out.println();
+        System.out.println(regCheck(""));
+        System.out.println(regCheck("0123"));
+        System.out.println(regCheck(".12"));
+        System.out.println(regCheck("12."));
+        System.out.println(regCheck("1.2.3"));
+        System.out.println(regCheck("1..3"));
+        System.out.println(regCheck("0"));
+        System.out.println(regCheck("12"));
+        System.out.println(regCheck("12.3"));
+        System.out.println(regCheck("0.3"));
+        System.out.println(regCheck("12.30"));
     }
 }
