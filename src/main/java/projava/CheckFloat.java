@@ -8,6 +8,9 @@ public class CheckFloat {
         START, INT, FRAC_START, FRAC, ZERO
     }
 
+    // Pattern.compileで正規表現を解析
+    // 文字列を解釈する家庭を管理するMatcherオブジェクト
+    // Macherオブジェクトに対してMatchesメソッドで、文字列が正規表現に適合するかを判定
     static Pattern pat = Pattern.compile("(0|[1-9][0-9]*)(\\.[0-9]+)?");
     static boolean regCheck(String data) {
         Matcher mat = pat.matcher(data);
