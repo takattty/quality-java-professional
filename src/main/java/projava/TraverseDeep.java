@@ -3,8 +3,10 @@ package projava;
 import javax.swing.text.Position;
 import java.util.ArrayDeque;
 
+// 深さ探索なので、スタック構造を使用。
 public class TraverseDeep {
     public static void main(String[] args) {
+        // これが迷路
         int[][] map = {
                 {1, 1, 1, 1, 1, 1, 1},
                 {1, 0, 1, 0, 0, 0, 1},
@@ -28,10 +30,12 @@ public class TraverseDeep {
     static boolean traverse(int[][] map, int curX, int curY) {
         record Position(int x, int y) {}
 
+        // スタックを扱う為のデータ構造
         var stack = new ArrayDeque<Position>();
 
         stack.push(new Position(curX, curY));
 
+        // ここの中の処理全然わかってない
         for (Position p; (p = stack.pollFirst()) != null ;) {
             switch (map[curY][curX]) {
                 case 0: break;
