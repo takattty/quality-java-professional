@@ -37,12 +37,13 @@ public class TraverseDeep {
 
         // ここの中の処理全然わかってない
         for (Position p; (p = stack.pollFirst()) != null ;) {
-            switch (map[curY][curX]) {
+            switch (map[p.y()][p.x()]) {
                 case 0: break;
                 case 2: return true;
-                default: return false;
+                default: continue;
             }
             map[p.y()][p.x()] = 3;
+            // ここでどんどんstackに積んでるんだけど、後戻りができないから通った道はそのまま印を付けてる
             stack.push(new Position(p.x() + 1, p.y()));
             stack.push(new Position(p.x() - 1, p.y()));
             stack.push(new Position(p.x(), p.y() + 1));
